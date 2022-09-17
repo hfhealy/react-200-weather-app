@@ -10,6 +10,7 @@ export default class Search extends React.Component {
 		super(props);
 
     this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 	}
 
   handleSearchInput(event) {
@@ -19,8 +20,16 @@ export default class Search extends React.Component {
 
     dispatch(updateSearch(value));
   }
+
+  handleClick() {
+    console.log("hello")
+    const { dispatch, city } = this.props;
+    dispatch(getWeather(city))
+    console.log("27", this.props.city, city)
+  }
     
     render() {
+    
         return (
 <div>
 <button type="button" className="btn btn-primary">San Diego</button>
@@ -29,8 +38,8 @@ export default class Search extends React.Component {
 <button type="button" className="btn btn-primary">London</button>
 <button type="button" className="btn btn-primary">Tokyo</button>
 <div className="input-group mb-3">
-  <input type="text" className="form-control" placeholder="City" value={ this.props.value } />
-  <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={ this.handleSearchInput }>Go!</button>
+  <input type="text" className="form-control" placeholder="City" value={ this.props.city } onChange={ this.handleSearchInput }/>
+  <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={ () => this.handleClick() }>Go!</button>
   </div>
 </div>
 )}

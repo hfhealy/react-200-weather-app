@@ -8,6 +8,7 @@ export function updateSearch(city) {
 }
 
 export function getWeather(city) {
+    console.log("city", city)
     return {
         type:'GET_WEATHER',
         payload: axios.get(`/search/${city}`),
