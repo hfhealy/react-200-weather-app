@@ -6,19 +6,16 @@ export default class CityInfo extends React.Component {
 	// }
     
     render() {
-      const { cityData } = this.props;
-      console.log("16", this.props)
+      const {name, coord:{lat, lon}, main:{temp, pressure, humidity, temp_min, temp_max}, wind:{speed} } = this.props.cityData;
       return (
-          
-<div className='col-12 col-md-6 mb-4'>
+        <div className='col-12 col-md-6 mb-4'>
           <div className="card">
               <div className="card-header">
-                City Information
-                
+                City Information                
               </div>
               <div className="card-body">
-                <h5 className="card-title d-flex justify-content-center">San Diego</h5>
-                <p className="card-text text-center">Lat/Long 32.7157° N, 117.1611° W</p>
+                <h5 className="card-title d-flex justify-content-center">{name}</h5>
+                <p className="card-text text-center">{`Lat/Long: ${lat} ${lon}`}</p>
                 {/* <div className="col-sm-8" id="output-box"> */}
         <div id="box-border w-100">
         <div className="row w-100" id="change-headers">
@@ -29,9 +26,9 @@ export default class CityInfo extends React.Component {
         </div>
         <br/>
         <div className="row w-100">
-          <p className="change col-sm d-flex justify-content-center" >70°F</p>
-          <p className="change col-sm d-flex justify-content-center" >997</p>
-          <p className="change col-sm d-flex justify-content-center" >39%</p>
+          <p className="change col-sm d-flex justify-content-center" >{temp}</p>
+          <p className="change col-sm d-flex justify-content-center" >{pressure}</p>
+          <p className="change col-sm d-flex justify-content-center" >{humidity}</p>
           
         </div>
         </div>
@@ -45,9 +42,9 @@ export default class CityInfo extends React.Component {
         </div>
         <br/> 
         <div className="row w-100">
-          <p className="change col-sm d-flex justify-content-center">60°F</p>
-          <p className="change col-sm d-flex justify-content-center">80°F</p>
-          <p className="change col-sm d-flex justify-content-center">10mph</p>
+          <p className="change col-sm d-flex justify-content-center">{temp_min}</p>
+          <p className="change col-sm d-flex justify-content-center">{temp_max}</p>
+          <p className="change col-sm d-flex justify-content-center">{speed}</p>
           
         </div>
         </div>

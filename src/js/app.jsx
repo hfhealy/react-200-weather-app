@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Search from './components/search/index.js';
-import CityInfo from './components/cityInfo/cityInfo';
-import SearchHistory from './components/searchHistory/searchHistory';
+import Search from './components/search';
+import CityInfo from './components/cityInfo';
+// import SearchHistory from './components/searchHistory';
 
 
 export default class App extends React.Component {
@@ -15,7 +15,7 @@ export default class App extends React.Component {
         
         <div className='row'>
         <CityInfo />
-        <SearchHistory />
+        {/* <SearchHistory /> */}
         </div>
         
       </div>

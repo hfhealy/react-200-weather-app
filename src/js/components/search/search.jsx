@@ -16,31 +16,30 @@ export default class Search extends React.Component {
   handleSearchInput(event) {
 
     const { dispatch } = this.props;
-    const { value } = event.target;
+    const city  = event.target.value;
 
-    dispatch(updateSearch(value));
+    dispatch(updateSearch(city));
   }
 
-  handleClick() {
+  handleClick(city) {
     console.log("hello")
-    const { dispatch, city } = this.props;
+    const { dispatch } = this.props;
     dispatch(getWeather(city))
-    console.log("27", this.props.city, city)
+    console.log("27", city)
   }
     
     render() {
-      // const { city } = this.props;
-      // console.log("32", city.cityData)
+      
         return (
 <div>
-<button type="button" className="btn btn-primary">San Diego</button>
-<button type="button" className="btn btn-primary">New York</button>
-<button type="button" className="btn btn-primary">Washington D.C.</button>
-<button type="button" className="btn btn-primary">London</button>
-<button type="button" className="btn btn-primary">Tokyo</button>
+<button type="button" className="btn btn-primary" onClick={() => this.handleClick("San Diego")}>San Diego</button>
+<button type="button" className="btn btn-primary" onClick={() => this.handleClick("New York")}>New York</button>
+<button type="button" className="btn btn-primary" onClick={() => this.handleClick("Washington D.C.")}>Washington D.C.</button>
+<button type="button" className="btn btn-primary" onClick={() => this.handleClick("London")}>London</button>
+<button type="button" className="btn btn-primary" onClick={() => this.handleClick("Tokyo")}>Tokyo</button>
 <div className="input-group mb-3">
-  <input type="text" className="form-control" placeholder="City" value={ this.props.city } onChange={ this.handleSearchInput }/>
-  <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={ () => this.handleClick() }>Go!</button>
+  <input type="text" className="form-control" placeholder="City" value={ this.props.city } onChange={ (event) => this.handleSearchInput(event) }/>
+  <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={ () => this.handleClick(this.props.city) }>Go!</button>
   </div>
 </div>
 )}
