@@ -29,7 +29,8 @@ export default class Search extends React.Component {
   }
     
     render() {
-    
+      // const { city } = this.props;
+      // console.log("32", city.cityData)
         return (
 <div>
 <button type="button" className="btn btn-primary">San Diego</button>

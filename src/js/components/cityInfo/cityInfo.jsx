@@ -1,16 +1,20 @@
 import React from 'react';
 
 export default class CityInfo extends React.Component {
-    constructor(props) {
-		super(props);
-	}
+  //   constructor(props) {
+	// 	super(props);
+	// }
     
     render() {
-        return (
+      const { cityData } = this.props;
+      console.log("16", this.props)
+      return (
+          
 <div className='col-12 col-md-6 mb-4'>
           <div className="card">
               <div className="card-header">
                 City Information
+                
               </div>
               <div className="card-body">
                 <h5 className="card-title d-flex justify-content-center">San Diego</h5>
