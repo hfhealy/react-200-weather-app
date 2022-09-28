@@ -25,7 +25,7 @@ export default class Search extends React.Component {
     console.log("hello")
     const { dispatch } = this.props;
     dispatch(getWeather(city))
-    console.log("27", city)
+    console.log("27", this.props)
   }
     
     render() {

@@ -5,7 +5,8 @@ const defaultState = {
         coord: {lon:'', lat: ''},
         main: {temp:'',pressure:'', humidity:'', temp_min:'', temp_max:'', humidity:''},
         wind: {speed:''}
-      }
+      },
+      history: []
 };
 
 export default function SearchReducer (state = defaultState, action) {
@@ -37,7 +38,14 @@ export default function SearchReducer (state = defaultState, action) {
             return {
                 ...state,
 
-                cityData: payload.data
+                cityData: payload.data,
+                history: [
+                    ...state.history,
+                    {
+                        cityName: payload.data.name,
+                        date: new Date()
+                    }
+                ]
             };
         }
         default: {
