@@ -34,7 +34,7 @@ export default function SearchReducer (state = defaultState, action) {
         }
 
         case 'GET_WEATHER_FULFILLED': {
-            console.log("payload.data", payload.data)
+            let now = new Date();
             return {
                 ...state,
 
@@ -43,7 +43,8 @@ export default function SearchReducer (state = defaultState, action) {
                     ...state.history,
                     {
                         cityName: payload.data.name,
-                        date: new Date()
+                        date: now.toLocaleDateString(),
+                        time: now.toLocaleTimeString()
                     }
                 ]
             };

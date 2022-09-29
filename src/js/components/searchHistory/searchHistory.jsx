@@ -1,16 +1,12 @@
 import React from 'react';
 
 export default class SearchHistory extends React.Component {
-  //   constructor(props) {
-	// 	super(props);
-	// }
     
     render() {
-      //const { history } = this.props;
       const { history } = this.props;
       console.log("10", history);
         return (
-<div className='col-12 col-md-6 mb-4'>
+        <div className='col-12 col-md-6 mb-4'>
           <div className="card">
               <div className="card-header">
                 Search History
@@ -23,19 +19,18 @@ export default class SearchHistory extends React.Component {
                   return <tr key={i}>
                     <td>
                       {item.cityName}
-                      {item.date.toString()}
+                    </td>
+                    <td>
+                      <p className='mb-0'>{item.date}</p>
+                      <p className='mb-0'>{item.time}</p>
                     </td>
                   </tr>
                 })
               }
-                {/* <tr>
-                  <td>City</td>
-                  <td className='text-end'>Date Time</td>
-                </tr> */}
                 </tbody>
                 </table>
               </div>
           </div>
-          </div>
+        </div>
         )}
         }
