@@ -4,7 +4,8 @@ const defaultState = {
         name:'',
         coord: {lon:'', lat: ''},
         main: {temp:'',pressure:'', humidity:'', temp_min:'', temp_max:'', humidity:''},
-        wind: {speed:''}
+        wind: {speed:''},
+        weather: {0: {main: '', icon: ''}}
       },
       history: []
 };
